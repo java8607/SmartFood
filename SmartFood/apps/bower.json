@@ -1,0 +1,25 @@
+{
+  "name": "smartfood",
+  "homepage": "https://github.com/java8607/SmartFood",
+  "authors": [
+    "Jose Rojas",
+    "Oscar Rodriguez"
+  ],
+  "description": "Smart Food Application",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "registry": "https://registry.bower.io",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.4"
+  }
+}

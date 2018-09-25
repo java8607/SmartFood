@@ -79,6 +79,12 @@ WSGI_APPLICATION = 'SmartFood.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'smart_food',
 		'USER': 'postgres',
@@ -86,7 +92,7 @@ DATABASES = {
 		'HOST:': 'localhost',
 		'PORT': 5433,
     }
-}
+}"""
 
 
 # Password validation
@@ -121,8 +127,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = (
+
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR,"apps/bower_components"),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
