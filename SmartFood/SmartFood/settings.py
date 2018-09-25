@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 	'apps.user',
 	'apps.diner',
 	'apps.restaurant',
+    'apps.menu',
+    'apps.preferences',
 	'apps.makerDecision',
 ]
 
