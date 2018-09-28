@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
+from apps.menu import views as menu_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,6 @@ urlpatterns = [
     path('restaurants', include('apps.restaurant.urls')),
     path('menu', include('apps.menu.urls')),
     path('preferences', include('apps.preferences.urls')),
+    path('api/menu', menu_views.MenuPage.as_view() )
 
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

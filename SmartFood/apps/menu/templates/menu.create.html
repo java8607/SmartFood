@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        
+    <h1>Nuevo Producto</h1>
+
+	<div style="margin-top: 40px;">
+		<div style="width: 100%; margin: 0 auto;">
+			<form id="productForm">
+				{% csrf_token %} 
+				<div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputEmail4">Nombre del producto</label>
+				      <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre del producto">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Descripción</label>
+				      <input type="text" class="form-control" id="inputPassword4" placeholder="Descripción">
+				    </div>
+				</div>	
+			
+				<button class="btn btn-primary">Guardar</button>
+			<form>
+		</div>
+	</div>
+	
+
+{% endblock %}
+
+{% block scripts %}
+		<script>
+			$(function(){
+				$('.btn.btn-primary').on('click', function(e){
+					console.log('ON SUBMIT');
+					$.ajax({
+						url: '/api/menu',
+						method: 'POST',
+						data: {
+							"nombre": $('#inputEmail4').val(),
+							"descripcion": $('#inputPassword4').val(),
+							"csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val()
+						}
+					}).then(function(response){
+							
+						console.log('Se guardó exitosamente');
+
+					});	
+				});	
+			});
+			
+		</script>
+		
+
+{% endblock %}
