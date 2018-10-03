@@ -1,7 +1,9 @@
 from django.urls import path
-from apps.user import views
+from apps.user.views import UserHomePageView
+
+userHomePageView = UserHomePageView()
 
 urlpatterns = [
-	path('', views.UserHomePageView.as_view()),
-	path('/new', views.UserHomePageView.as_view()),
+	path('', userHomePageView.get),
+	path('/login', userHomePageView.login, name="login"),
 ]

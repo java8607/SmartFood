@@ -21,12 +21,12 @@ from django.conf.urls.static import static
 from apps.menu import views as menu_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('users', include('apps.user.urls')),
+    path('admin', admin.site.urls),
+    path('index', include('apps.user.urls')),
     path('restaurants', include('apps.restaurant.urls')),
     path('menu', include('apps.menu.urls')),
     path('product', include('apps.product.urls')),
     path('preferences', include('apps.preferences.urls')),
-    path('api/menu', menu_views.MenuPage.as_view() )
+    path('api/menu', menu_views.MenuPage.as_view() ),
 
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
