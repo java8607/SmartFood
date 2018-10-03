@@ -25,6 +25,7 @@ urlpatterns = [
     path('users', include('apps.user.urls')),
     path('restaurants', include('apps.restaurant.urls')),
     path('menu', include('apps.menu.urls')),
+    path('product', include('apps.product.urls')),
     path('preferences', include('apps.preferences.urls')),
     path('api/menu', menu_views.MenuPage.as_view() )
 

@@ -2,11 +2,11 @@
 
 {% block content %}
         
-    <h1>Administración de Menú</h1>
+    <h1>Administración del Menú {{ person }} {{ weather }}</h1>
 
     <div class="row">
 		<div class="btn btn-primary" style="float: right">
-			<a href="{% url 'menu-create' %}" style="color: white">Agregar Producto</a>
+			<a href="{% url 'product' %}" style="color: white">Agregar Producto </a>
 		</div>
 	</div>
 	<div style="margin-top: 40px;">
