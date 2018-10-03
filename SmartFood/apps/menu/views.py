@@ -35,4 +35,4 @@ class MenuPage(TemplateView):
 
 	def post(self, request, **kwargs):
 		print('REQUEST CONSOLE: ', request)
-		return HttpResponse('')
+		return HttpResponse('excelent')

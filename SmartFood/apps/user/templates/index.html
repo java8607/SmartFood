@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	
 <head>
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
 	<title>SmartFood Application</title>
@@ -68,8 +69,9 @@ span.psw {
 </style>
 </head>
 <body>  
+
 	<form action="/index/login" method="post"> 
-			{% csrf_token %}
+	{% csrf_token %}
 	  <h1>SMART FOOD</h1>
 	  <div class="container">
 		<label for="uname"><b>Usuario</b></label>
@@ -79,10 +81,10 @@ span.psw {
 		<input type="password" placeholder="Ingrese su contraseña" id="psw" name="psw" required>
 		   <a href="{% url 'menu-create' %}" style="color: white">Agregar Producto</a>
 		<button class="btn btn-primary" type="submit">Ingresar</button>
-		<label>
-		  <input type="checkbox" checked="checked" name="remember"> Remember me
+		<label style="color:red">
+		  {{respuesta}}
 		</label>
 	  </div>
-	</form>	
+	</form>
   </body>
 </html>

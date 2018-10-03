@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views.generic import TemplateView
 from django.core import serializers
 from apps.user.models import User
@@ -16,10 +16,11 @@ class UserHomePageView(TemplateView):
 			password = request.POST.get('psw')
 			result = User.objects.get(userName = user)
 			
-			if result.password == password:				
+			if result.password == password:	
+				request.session['usr'] = user
+				request.session['id'] = result.id							
 				return render(request, 'maker.html', context=None)
 			else:				
-				return JsonResponse('error: Usuario o clave invalidos', safe=False)	
-		else:
-			print("No es  POST *****************************")		
+				return render_to_response("index.html", {'respuesta':'error: Usuario o clave invalidos'})		
+		
 		return render(request, 'index.html', context=None)

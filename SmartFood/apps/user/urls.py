@@ -4,6 +4,6 @@ from apps.user.views import UserHomePageView
 userHomePageView = UserHomePageView()
 
 urlpatterns = [
-	path('', userHomePageView.get),
+	path('', userHomePageView.login),
 	path('/login', userHomePageView.login, name="login"),
 ]

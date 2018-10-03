@@ -19,10 +19,13 @@ from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
 from apps.menu import views as menu_views
+from apps.makerDecision import views as maker_views
 
 urlpatterns = [
     path('admin', admin.site.urls),
+	path('', include('apps.user.urls')),
     path('index', include('apps.user.urls')),
+	path('maker', include('apps.makerDecision.urls')),
     path('restaurants', include('apps.restaurant.urls')),
     path('menu', include('apps.menu.urls')),
     path('preferences', include('apps.preferences.urls')),
