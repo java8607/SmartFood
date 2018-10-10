@@ -7,9 +7,9 @@ class Schedule():
 	manager = None
 	days = ""
 
-	def __init__(manager, menu):
-		manager = Manager()
-		menu = Menu()
+	def __init__(self, manager, menu):
+		self.manager = Manager()
+		self.menu = Menu()
 
 
 
