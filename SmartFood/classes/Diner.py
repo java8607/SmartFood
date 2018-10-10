@@ -9,9 +9,9 @@ class Diner():
 	personalCharacteristic = ()
 	healthCharacteristic = ()
 
-	def __init__(personalCharacteristic, healthCharacteristic):
-		healthCharacteristic = healthCharacteristic
-		personalCharacteristic = personalCharacteristic
+	def __init__(self, personalCharacteristic, healthCharacteristic):
+		self.healthCharacteristic = healthCharacteristic
+		self.personalCharacteristic = personalCharacteristic
 
 
 
