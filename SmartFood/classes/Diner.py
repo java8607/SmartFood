@@ -18,6 +18,13 @@ class Diner():
 	
 	def getPreferences(self):
 		return self.preferences
+	
+	def setBudget(self, budget):
+		self.budget = budget
+		
+	def setPreferences(self, preferences):
+		self.preferences = preferences
+		
 
 
 
