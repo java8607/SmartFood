@@ -9,13 +9,6 @@ class PersonalCharacteristic():
 	nationality = ""
 	weightKg = 0
 
-	def __init__():
-		manager = Manager()
-		menu = Menu()
-
-	def getAllergicProfile(allergicProfile):
-		allergicProfile = allergicProfile
-
 
 
 
