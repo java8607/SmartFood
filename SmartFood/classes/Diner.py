@@ -12,7 +12,12 @@ class Diner():
 	def __init__(self, personalCharacteristic, healthCharacteristic):
 		self.healthCharacteristic = healthCharacteristic
 		self.personalCharacteristic = personalCharacteristic
-
+	
+	def getBudget(self):
+		return self.budget
+	
+	def getPreferences(self):
+		return self.preferences
 
 
 
