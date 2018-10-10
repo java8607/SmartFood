@@ -5,6 +5,7 @@ from django.db import models
 class Schedule():
 
 	manager = None
+	menu = None
 	days = ""
 
 	def __init__(self, manager, menu):
