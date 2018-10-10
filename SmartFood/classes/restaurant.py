@@ -13,8 +13,17 @@ class Restaurant():
 	cellPhoneNumber = ""
 	CellPhoneNumberAlternative = ""
 
-	def __init__(manager, menu):
-		manager = Manager(self)
+	def __init__(self, manager, menu):
+		manager = Manager()
 		menu = Menu()
+		
+	def getManager(self):
+		return self.manager
+	
+	def getMenu(self):
+		return self.menu
+	
+	def getAddress(self):
+		return self.address
 
 	
