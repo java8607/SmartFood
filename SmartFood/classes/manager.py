@@ -7,9 +7,9 @@ class Manager():
 	restaurant = None
 	days = ""
 
-	def __init__(restaurant):
-		manager = Manager()
-		menu = Menu()
+	def __init__(self, restaurant):
+		self.manager = Manager()
+		self.menu = Menu()
 
 
 

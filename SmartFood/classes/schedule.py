@@ -5,11 +5,12 @@ from django.db import models
 class Schedule():
 
 	manager = None
+	menu = None
 	days = ""
 
-	def __init__(manager, menu):
-		manager = Manager()
-		menu = Menu()
+	def __init__(self, manager, menu):
+		self.manager = Manager()
+		self.menu = Menu()
 
 
 
