@@ -2,15 +2,10 @@ from django.db import models
 
 # Create your models here.
 
-class Product(Elegible):
-
-	name = ""
-	price = 0.0
-  ingredients = None
-  category = ""
-    
+class Elegible():
+	
   def evaluateProduct(diner):
-    return diner
+	pass
     
   def discardProduct(diner):
-    return diner
+    	pass
