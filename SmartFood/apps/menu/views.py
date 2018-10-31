@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.utils.html import escape
 from django.http import JsonResponse, HttpResponse
 
 # Create your views here.
 
 class MenuHomePageView(TemplateView):
 	
-	def get(self, request, **kwargs):
+	def get(self, request, **kwargs):       
 		return render(request, 'menu.html', context=None)
 
 class MenuCreatePageView(TemplateView):
@@ -34,5 +35,5 @@ class MenuPage(TemplateView):
 		return JsonResponse(products, safe=False)
 
 	def post(self, request, **kwargs):
-		print('REQUEST CONSOLE: ', request)
-		return HttpResponse('excelent')
+		print('REQUEST CONSOLE: ', request.POST.get("ingredients[]", ""))
+		return HttpResponse('')

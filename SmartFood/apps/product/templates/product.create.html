@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        
+    <h1>Nuevo Producto</h1>
+
+	<div style="margin-top: 40px;">
+		<div style="width: 100%; margin: 0 auto;">
+			<form id="productForm">
+				{% csrf_token %} 
+				<div class="row">
+				    <div class="form-group col-md-6">
+				      <label for="inputEmail4">Nombre del producto</label>
+				      <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre del producto">
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Precio</label>
+				      <input type="text" class="form-control" id="inputPassword4" placeholder="Precio">
+				    </div>
+				</div>	
+
+				<div class="row">
+					<div class="form-group col-md-6">
+					    <label for="ingredients">Ingredientes</label>
+					    <select multiple class="form-control" id="ingredients">
+
+					    </select>
+					  </div>
+				</div>
+			
+				<button class="btn btn-primary">Guardar</button>
+			<form>
+		</div>
+	</div>
+	
+
+{% endblock %}
+
+{% block scripts %}
+		<script>
+			$(function(){
+				$('.btn.btn-primary').on('click', function(e){
+					console.log('ON SUBMIT');
+
+					var ingredients = [];
+					$('#ingredients option:selected').each(function(i, item){
+							ingredients.push(item.value)
+					});
+
+					$.ajax({
+						url: '/api/menu',
+						method: 'POST',
+						data: {
+							"name": $('#inputEmail4').val(),
+							"price": $('#inputPassword4').val(),
+							"ingredients": ingredients,
+							"csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val()
+						}
+					}).then(function(response){
+							
+						console.log('Se guardó exitosamente');
+
+					});	
+				});	
+
+				$.ajax({
+					url: 'ingredients/all',
+					method: 'GET'
+				}).then(function(response){
+						
+					
+					response = JSON.parse(response);
+
+					console.log(response);
+
+					for(var i = 0;i < response.length; i++ ){
+						$('#ingredients').append(
+						'<option value="'+response[i].pk+'"">'+response[i].fields.name+'</option>');
+					}
+				});
+			});
+			
+		</script>
+		
+
+{% endblock %}

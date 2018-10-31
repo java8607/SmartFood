@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        
+    <h1>Productos</h1>
+
+    <div class="row">
+    	<div class="col-md">
+	    	<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Nombre del Producto</label>
+			    <input type="text" class="form-control" id="product_name" aria-describedby="emailHelp" placeholder="Ingrese el nombre del producto">
+			  </div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="btn btn-primary" style="float: right">
+			<a href="#" style="color: white">Buscar Producto</a>
+		</div>
+	</div>
+	<div class="row align-items-end">
+		<div class="col-sm">
+			<div class="btn btn-primary" style="float: right">
+				<a href="{% url 'new-product' %}" style="color: white">Agregar Producto</a>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top: 40px;">
+		<div style="width: 80%; margin: 0 auto; overflow: hidden">
+			<table style="width:100%"> 
+				<thead> 
+					<tr> 
+						<th width="200" style= "text-align: center"> ID</th>
+						<th style="text-align: center">PRODUCTO</th>
+						<th width="150" style= "text-align: center">Precio</th>
+						<th width="150" style= "text-align: center">Eliminar</th> 
+					</tr> 
+				</thead> 
+				<tbody> 
+					<tr> 
+					</tr> 
+				</tbody> 
+			</table>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+		<script>
+		$(function(){
+			$.ajax({
+				url: 'product/all',
+				method: 'GET'
+			}).then(function(response){
+					
+				
+				response = JSON.parse(response);
+
+				console.log(response);
+
+				for(var i = 0;i < response.length; i++ ){
+					$('table tbody').append(
+					'<tr>' +
+					'<td style="text-align: center">'+response[i].pk+'</td>'+
+					'<td style="text-align: center">'+response[i].fields.name+'</td>'+
+					'<td style="text-align: center">'+response[i].fields.price+' </td>'+
+					'<td style="text-align: center"><a href="#" > Eliminar </a></td>'+
+					'</tr>');
+				}
+			});
+		});
+		</script>
+		
+
+{% endblock %}
